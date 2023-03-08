@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html>
+  <script>
+  import Vue from 'vue'
+  import Router from 'vue-router'
+  import VueResource from 'vue-resource'
+  import  Multiselect  from 'vue-multiselect'
+
+  Vue.use(VueResource)
+  Vue.use(Router)
+
+  Vue.component('multiselect', Multiselect)
+  
+  </script>
+ <!--  <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->
+  <link rel="icon" href="public/img/icons/favicon-16x16.png">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+  <link rel="stylesheet" href="vue-multiselect/dist/vue-multiselect.min.css">
+  <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+  <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 75%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    input[type=submit] {
+      background-color: #4caf50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit][disabled] {
+      background-color: #999999;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-control {
+      margin-bottom: 1rem;
+      display: block;
+      width: 90%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 0.5;
+      background-color: #ffffff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .sub-entry {
+      width: 50%;
+      float: left;
+    }
+
+  </style>
+
+  <body>
+    <center><span style="font-size: 20px;">Organization KYC Details</span></center><br>
+    <div id="app" class="container">
+      <div id="pageloader" v-if="loader">
+        <center>
+          <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="processing..." style="position: fixed; height: 10%; width: 5%; z-index: 100000;" />
+       </center>
+      </div>
+      <form name="myForm">
+        <div class="sub-entry">
+          <label>Organization Name*</label>
+          <input type="text" class="form-control" v-model="org_name" pattern="^[A-Za-z-()]+(?: +[A-Za-z-()]+)*$" placeholder="Enter Organization Name">
+        
+          <label>Technical Email*</label>
+          <input type="text" class="form-control" v-model="technical_email" pattern="^[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,4}$" placeholder="Enter Technical Email">
+          
+          <label>Report Email*</label>
+          <input type="text" class="form-control" v-model="report_email" pattern="^(,?[0-9a-z.]+@((([a-z0-9-]))+\.[a-z]{2,4}(.[a-z]{2,4})*))+$" placeholder="Enter Report Email">
+          
+          <label>Mobile Number*</label>
+          <input type="text" class="form-control" v-model="mobile_number" maxlength=10 pattern="[6-9]{1}[0-9]{9}" placeholder="Enter Mobile Number">
+
+          <label>State*</label>        
+          <select id="state_data" v-model="state" class="form-control" @change = "getCityByState(state)" style="width: 95%;">        
+            <option value="">-- Select State --</option>
+          </select>
+
+          <label>City*</label>        
+          <select id="city_data" v-model="city" class="form-control" style="width: 95%;">        
+            <option value="">-- Select City --</option>
+          </select>
+
+          <label>Pincode*</label>
+          <input type="text" class="form-control" v-model="pincode" maxlength=6 pattern="[1-9][0-9]{5}" placeholder="Enter Pincode">
+
+          <label>GST Number</label>
+          <input type="text" class="form-control" v-model="gst_number" placeholder="Enter GST Number">
+
+          <label>App Name*</label>
+          <input type="text" class="form-control" v-model="app_name" placeholder="Enter App Name">
+
+          <label>Package Name*</label>
+          <input type="text" class="form-control" v-model="package_name" placeholder="Enter Package Name">
+
+          <label>SMS Host</label>
+          <input type="text" class="form-control" v-model="sms_host" placeholder="Enter SMS Host">
+          
+          <label>SMS Method</label>
+          <input type="text" class="form-control" v-model="sms_method" placeholder="Enter SMS Method">
+          
+          <label>SMS Contact Key</label>
+          <input type="text" class="form-control" v-model="sms_contact_key" placeholder="Enter SMS Contact Key">
+        </div>
+        <div class="sub-entry">
+          <label>SMS API Context</label>
+          <input type="text" class="form-control" v-model="sms_api_context" placeholder="Enter SMS API Context">
+
+          <label>Message Template</label>
+          <input type="text" class="form-control" v-model="message_template" placeholder="Enter Message Template">
+          
+          <label>Sender ID</label>
+          <input type="text" class="form-control" v-model="sender_id" placeholder="Enter Sender ID">
+          
+          <label>Company Website</label>
+          <input type="text" class="form-control" v-model="company_website" placeholder="Enter Company Website">
+          
+          <label>Facebook Link</label>
+          <input type="text" class="form-control" v-model="facebook_link" placeholder="Enter Facebook Link">
+          
+          <label>Youtube Link</label>
+          <input type="text" class="form-control" v-model="youtube_link" placeholder="Enter Youtube Link">
+
+          <label>Support Mobile No*</label>
+          <input type="text" class="form-control" v-model="support_mobile_no" placeholder="Enter Support Mobile No">
+
+          <label>Support Mail ID*</label>
+          <input type="text" class="form-control" v-model="support_mail_id" placeholder="Enter Support Mail ID">
+
+          <label>Mobile Launcher (512x512)png</label><br>
+          <input type="file" id='mobile_logo' accept="image/png" v-on:change="mobile_logo" @change="uploadImage($event,'mobile_logo')" id="file-input"><br><br>
+
+          <label>TV Launcher (1280x720)png</label><br>
+          <input type="file" id='tv_logo' accept="image/png" v-on:change="tv_logo" @change="uploadImage($event,'tv_logo')" id="file-input"><br><br>
+
+          <label>Play store Banner (1080x500)png</label><br>
+          <input type="file" id='playstore_logo' accept="image/png" v-on:change="playstore_logo" @change="uploadImage($event,'playstore_logo')" id="file-input"><br><br>
+
+          <label>Brand logo (512x512)png</label><br>
+          <input type="file" id='brand_logo' accept="image/png" v-on:change="brand_logo" @change="uploadImage($event,'brand_logo')" id="file-input">
+        </div>
+      </form>
+      <center><input v-if="!loader"  type="submit" value="Submit" onclick="submit()"></center>
+      <center><input v-if="loader" type="submit" value="Submit" disabled></center>
+    </div>
+  </body>
+</html>
+
+<script>
+var org_kyc_info = new Vue({
+  components: { Multiselect: window.VueMultiselect.default },
+  el: '#app',
+  beforeCreate:function(){
+    var platform_array = [];
+    axios.get('http://staging.skie.tv/api/'+'org/stateCity').then(state_res => {
+      var options = state_res.data
+      this.stateArr = state_res.data
+      console.log('org_kyc_info',org_kyc_info)
+      org_kyc_info.stateArr = state_res.data
+      var selectBox = document.getElementById('state_data');
+      for(var i = 0, l = options.length; i < l; i++){
+        var option = options[i];
+        selectBox.options.add( new Option(option.name, option.state_id) );
+      }
+    })
+  },
+  data() {
+    return {
+    org_name : '',
+    city : '',
+    state : '',
+    technical_email: '',
+    report_email : '',
+    mobile_number : '',
+    gst_number:'',
+    app_name:'',
+    package_name:'',
+    sms_method:'',
+    sms_host:'',
+    sms_api_context:'',
+    sms_contact_key:'',
+    message_template:'',
+    sender_id:'',
+    company_website:'',
+    facebook_link:'',
+    youtube_link:'',
+    support_mobile_no:'',
+    loader:false,
+    support_mail_id:'',
+    pincode : '',
+    selected_platform: '',
+    cityoptions : [],
+    stateArr : [],
+    mobile_logo:[],
+    tv_logo:[],
+    brand_logo:[],
+    playstore_logo:[],
+    }
+  },
+  methods :{
+    getCityByState(state_id){
+      var city_list = [];
+      this.stateArr.filter(function(index){
+        if(index.state_id==state_id){
+          city_list = index.cities
+        }
+      })
+      var citySelectBox = document.getElementById('city_data');
+      var length = citySelectBox.options.length;
+      for (i = length-1; i >= 0; i--) {
+        citySelectBox.options[i] = null;
+      }
+      for(var i = 0, l = city_list.length; i < l; i++){
+        var option = city_list[i];
+        citySelectBox.options.add( new Option(option.name, option.city_id) );
+      }
+    },
+    uploadImage(event,tag){
+      var width, height;
+      const img = new Image()
+      if((tag == 'mobile_logo') || (tag == 'brand_logo')){
+        width = '512'
+        height = '512'
+      }else if(tag == 'playstore_logo'){
+        width = '1080'
+        height = '500'
+      }else if(tag == 'tv_logo'){
+        width = '1280'
+        height = '720'
+      }
+      this[tag] = event.target.files[0]
+      var image_file = event.target.files[0]
+      const reader = new FileReader()
+      reader.readAsDataURL(image_file)
+      reader.onload = evt => {
+        img.onload = () => {
+          if ((img.width != width) && (img.height != height)) {
+            this[tag]='' 
+            org_kyc_info[tag] = []
+            document.getElementById(tag).value = ''
+
+            alert('please check the images size')
+          }
+        }
+        img.src = evt.target.result
+      }
+    }
+  }
+})
+
+function submit() {
+  var currentState;
+  org_kyc_info.stateArr.map(function(prop){
+    if(prop.state_id == org_kyc_info.state){
+      currentState = prop.name
+    }
+  })
+  let payload = new FormData();
+  payload.append('org_name', org_kyc_info.org_name);
+  payload.append('city', org_kyc_info.city);
+  payload.append('state', currentState);
+  payload.append('pincode', org_kyc_info.pincode);
+  payload.append('technical_email', org_kyc_info.technical_email);
+  payload.append('report_email', org_kyc_info.report_email);
+  payload.append('mobile_number', org_kyc_info.mobile_number);
+  payload.append('app_name', org_kyc_info.app_name);
+  payload.append('package_name', org_kyc_info.package_name);
+  payload.append('sms_method', org_kyc_info.sms_method);
+  payload.append('sms_host', org_kyc_info.sms_host);
+  payload.append('sms_contact_key', org_kyc_info.sms_contact_key);
+  payload.append('sms_api_context', org_kyc_info.sms_api_context);
+  payload.append('message_template', org_kyc_info.message_template);
+  payload.append('sender_id', org_kyc_info.sender_id);
+  payload.append('company_website', org_kyc_info.company_website);
+  payload.append('facebook_link', org_kyc_info.facebook_link);
+  payload.append('youtube_link', org_kyc_info.youtube_link);
+  payload.append('support_mail_id', org_kyc_info.support_mail_id);
+  payload.append('support_mobile_no', org_kyc_info.support_mobile_no);
+  payload.append('mobile_logo', org_kyc_info.mobile_logo);
+  payload.append('tv_logo', org_kyc_info.tv_logo);
+  payload.append('playstore_logo', org_kyc_info.playstore_logo);
+  payload.append('brand_logo', org_kyc_info.brand_logo);
+
+  var form_flag;
+  var vm = org_kyc_info
+  if ((vm.org_name.length==0)|| (vm.city.length==0) || (vm.state.length==0) || (vm.pincode.length==0) || (vm.technical_email.length==0) || (vm.report_email.length==0) || (vm.mobile_number.length==0) || (vm.app_name.length==0) || (vm.package_name.length==0) ||(vm.support_mobile_no.length==0) ||(vm.support_mail_id.length==0)){
+    form_flag = false;
+  }else{
+    form_flag = true;
+  }
+
+  if((vm.mobile_logo.length == undefined) && (vm.tv_logo.length == undefined) && (vm.playstore_logo.length == undefined) && vm.brand_logo.length == undefined){
+    form_flag = true;
+  }else{
+    form_flag = false;
+  }
+  if(!form_flag){
+    return alert("Please fill the form correctly")
+  }
+  org_kyc_info.loader = true
+
+  axios.post('http://staging.skie.tv/api/'+'auth/kyc', payload, {editJSON : true}).then(responseData => {
+    org_kyc_info.loader = false
+    org_kyc_info.org_name              = ''
+    org_kyc_info.city                  = ''
+    org_kyc_info.state                 = ''
+    org_kyc_info.technical_email       = ''
+    org_kyc_info.report_email          = ''
+    org_kyc_info.mobile_number         = ''
+    org_kyc_info.gst_number            = ''
+    org_kyc_info.app_name              = ''
+    org_kyc_info.package_name          = ''
+    org_kyc_info.sms_host              = ''
+    org_kyc_info.sms_method            = ''
+    org_kyc_info.sms_api_context       = ''
+    org_kyc_info.sms_contact_key       = ''
+    org_kyc_info.message_template      = ''
+    org_kyc_info.sender_id             = ''
+    org_kyc_info.company_website       = ''
+    org_kyc_info.facebook_link         = ''
+    org_kyc_info.pincode       = ''
+    org_kyc_info.youtube_link          = ''
+    org_kyc_info.support_mail_id       = ''
+    org_kyc_info.support_mobile_no     = ''
+    document.getElementById('mobile_logo').value = ''
+    document.getElementById('tv_logo').value = ''
+    document.getElementById('playstore_logo').value = ''
+    document.getElementById('brand_logo').value = ''
+ 
+    alert("KYC created successfully");
+  }, errResponse => {
+    org_kyc_info.loader = false
+    alert("KYC creation failed");
+  })
+ 
+}
+</script>

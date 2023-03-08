@@ -1,0 +1,22 @@
+{
+	"localhost:8086" : {
+        "url" : "https://app.skie.tv/portal_logo/skie.png",
+        "name" : "SKIE"
+    },
+    "staging-int3.skie.tv": {
+        "url" : "https://app.skie.tv/portal_logo/skie.png",
+        "name" : "GQL TV"
+    },
+    "staging-int2.skie.tv": {
+        "url" : "https://app.skie.tv/portal_logo/skie.png",
+        "name" : "SKIE TV"
+    },
+    "app.gqltv.com": {
+        "url" : "https://app.skie.tv/portal_logo/gql_logo.png",
+        "name" : "GQL TV"
+    },
+    "app.skie.tv": {
+        "url" : "https://app.skie.tv/portal_logo/skie.png",
+        "name" : "SKIE TV"
+    }
+}

@@ -1,0 +1,196 @@
+$alpha-color: #ffffff;
+$secondary-alpha-color: #c5c5c5;
+$success-color: #04de5b;
+$pending-color: orange;
+$error-color: #ea0707;
+$primary-blue-color: #1d63b1;
+$secondary-blue-color: #2072ce;
+$text-input-background: #f8f8f8;
+$primary-gray: #878787;
+$primary-black: #000000;
+$seconday-gray: #a9a9a9;
+$thrid-gray: #494949;
+
+.va-button--default {
+  background-color: #efba18 !important;
+  color: #121212 !important;
+  height: 35px;
+}
+
+.va-button--default i {
+  color: #121212;
+}
+
+.grid_image {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.va-button--normal .va-button__content__icon {
+  width: 1.2rem;
+}
+
+.model_cancel {
+  float: right;
+  margin-top: -5%;
+  margin-right: -2%;
+}
+
+.errors {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.pre-formatted {
+  white-space: pre;
+  font-size: 15px;
+}
+
+.va-button--normal {
+  border-radius: 6px;
+  box-shadow: none !important;
+  font-size: 14px;
+  font-weight: 600;
+
+  &.va-button--with-left-icon {
+    padding-left: 0.9rem;
+  }
+
+  &.va-button__content__icon {
+    width: 1.2rem;
+  }
+}
+
+.va-button-normal-cancel {
+  background: transparent !important;
+  border: solid 1px #ececec !important;
+  color: gray !important;
+}
+
+.va-button-normal-cancel:hover {
+  -webkit-filter: brightness(30%);
+  filter: brightness(30%);
+}
+
+.va-select__option .va-select__option--selected {
+  border-bottom-color: #ff0000 !important;
+  background-color: transparent;
+}
+
+.va-input__container {
+  border: none;
+  background-color: $text-input-background !important;
+  margin: 0;
+  border-radius: 20px;
+}
+
+.va-input-search-container {
+  border: none;
+  background: transparent;
+  margin: 0;
+  border-radius: 80px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+  & .va-input__container {
+    background: transparent !important;
+  }
+}
+
+.va-modal__title {
+  font-size: x-small;
+}
+
+.va-success-color {
+  color: $success-color;
+}
+
+.va-pending-color {
+  color: $pending-color;
+}
+
+.va-error-color {
+  color: $error-color;
+}
+
+.va-card__header-title {
+  color: $primary-black !important;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.va-input__container__label,
+.va-select__label {
+  color: $primary-gray !important;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.date_picker {
+  width: 1050px;
+  height: 36px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.header {
+  color: $primary-black !important;
+  font-size: 24px;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+
+.va-form-label {
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.va-form-required-label::after {
+  content: " *";
+  color: red;
+}
+
+.va-select {
+  background-color: $text-input-background !important;
+}
+
+.app-layout .app-sidebar-link__item {
+  color: $alpha-color;
+  background: black !important;
+}
+
+.app-layout .app-sidebar-link__item:hover {
+  color: $alpha-color;
+  background: #efba18 !important;
+  border-color: #ffffff !important;
+}
+
+.app-layout .app-sidebar-link__item.current-selected-tab {
+  color: #121212 !important;
+  border-color: #efba18 !important;
+  background-color: #efba18 !important;
+}
+
+.input {
+  width: 100%;
+  height: 35px;
+  cursor: default;
+  text-align: -moz-center;
+}
+
+.file_drop {
+  background-color: rgba(254, 228, 137, 0.3);
+}
+
+.imagePreviewWrapper {
+  width: 250px;
+  height: 250px;
+  display: block;
+  cursor: pointer;
+  margin: 0 auto 30px;
+  background-size: cover;
+  background-position: center center;
+}

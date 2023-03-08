@@ -1,0 +1,11 @@
+
+
+{
+  "menu": {
+    "dashboard" : "Dashboard",
+    "platform"  : "Platforms",
+    "host"      : "https://staging-int3.skie.tv/api",
+    "orgkyc"	: "Organization KYC",
+    "redirection_url" : "https://staging.skie.tv"
+  }
+}
