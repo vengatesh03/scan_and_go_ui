@@ -38,7 +38,7 @@
 
 <script>
 import AppPageLayout from './AppPageLayout'
-// import AppNavbar from './app-navbar/AppNavbar'
+import AppNavbar from './app-navbar/AppNavbar'
 import AppTopbar from './app-topbar/AppTopbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'

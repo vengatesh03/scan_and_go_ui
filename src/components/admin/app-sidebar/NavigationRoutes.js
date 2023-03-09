@@ -22,15 +22,6 @@ var routes_data = [
     },
   },
   {
-    name: 'inventory',
-    displayName: 'Inventory',
-    meta: {
-      iconClass: 'fa fa-briefcase',
-      authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
-      flag: [],
-    },
-  },
-  {
     name: 'transactions',
     displayName: 'Transactions',
     meta: {
@@ -39,24 +30,15 @@ var routes_data = [
       flag: [],
     },
   },
-  // {
-  //   name: 'quotations',
-  //   displayName: 'Quotations',
-  //   meta: {
-  //     iconClass: 'fa fa-users',
-  //     authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
-  //     flag: [],
-  //   },
-  // },
-  // {
-  //   name: 'all_documents',
-  //   displayName: 'All Documents',
-  //   meta: {
-  //     iconClass: 'fa fa-users',
-  //     authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
-  //     flag: [],
-  //   },
-  // },
+  {
+    name: 'inventory',
+    displayName: 'Inventory',
+    meta: {
+      iconClass:'fa fa-briefcase',
+      authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
+      flag: [],
+    },
+  },
   {
     name: 'payments',
     displayName: 'Payments',
@@ -66,24 +48,6 @@ var routes_data = [
       flag: [],
     },
   },
-  // {
-  //   name: 'buy_and_suppliers',
-  //   displayName: 'Buys & Suppliers ',
-  //   meta: {
-  //     iconClass: 'fa fa-users',
-  //     authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
-  //     flag: [],
-  //   },
-  // },
-  // {
-  //   name: 'business_intelligence',
-  //   displayName: 'Business Intelligence',
-  //   meta: {
-  //     iconClass: 'fa fa-user-o',
-  //     authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
-  //     flag: [],
-  //   },
-  // },
   {
     name: 'reports',
     displayName: 'Reports',
@@ -93,16 +57,15 @@ var routes_data = [
       flag: [],
     },
   },
-  // {
-  //   name: 'settings',
-  //   displayName: 'Settings',
-  //   meta: {
-  //     iconClass: 'fa fa-cog',
-  //     authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
-  //     flag: [],
-  //   },
-  // }
-
+  {
+    name: 'logout',
+    displayName: 'Sign Out',
+    meta: {
+      iconClass: 'fa fa-sign-out',
+      authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
+      flag: [],
+    },
+  },
 ]
 
 export const getNavigationRoutes = () => {
