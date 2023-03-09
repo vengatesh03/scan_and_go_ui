@@ -2,28 +2,15 @@
   <div class="auth-layout row align-content--center">
     <div class="flex xs12 pa-3 flex-center">
       <router-link class="py-5 flex-center" to="/">
-        <!-- <va-icon-vuestic /> -->
-        <!-- <span>Welcome</span> -->
+        <img class="icon" src="@/assets/scanandgo.jpg" />
       </router-link>
     </div>
 
     <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
-        <va-card class="auth-layout__card">
-          <va-tabs
-            v-model="tabIndex"
-            center
-          >
-            <va-tab>Login</va-tab>
-            <!-- <va-tab>{{ $t('auth.createNewAccount') }}</va-tab> -->
-          </va-tabs>
-
-          <va-separator/>
-
           <div class="pa-3">
             <router-view/>
           </div>
-        </va-card>
       </div>
     </div>
   </div>
@@ -62,7 +49,7 @@ export default {
 <style lang="scss">
 .auth-layout {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #f75c1e, #c43b04);
+  background-image: linear-gradient(to right, #ffffff, #ffffff);
 
   &__card {
     width: 100%;

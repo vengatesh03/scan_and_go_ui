@@ -22,7 +22,8 @@
     <div v-if="err_flag" style="color: Tomato;"><label>{{err_msg}}</label></div>
     <div class="d-flex justify--center mt-3 login-btn-container">      
       <va-button type="submit" class="my-0 login-btn" v-bind:class="{ 'disable-btn' : isLogging }">
-      <span v-if="isLogging"><i class="fa fa-spinner fa-spin"></i></span><p style="color: white;">Log in</p></va-button>
+      <i class="fa fa-sign-in" style="color: white;"></i>&nbsp;&nbsp;
+      <p style="color: white;">Sign in</p></va-button>
     </div>
   </form>
 </template>
