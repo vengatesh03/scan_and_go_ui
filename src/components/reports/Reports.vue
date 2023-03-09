@@ -13,36 +13,42 @@
                   <va-card  style="background: #eff5e6;">
                     <h3> Order Confirmation / Sales Order Register </h3>
                     <p> Details of all the order confirmation along with their dispatch status </p>
+                    <va-button flat small color="#00b33c" icon="fa fa-file-text">Generate Report</va-button>
                   </va-card>&nbsp;&nbsp;
                 </div>
                 <div class="flex xs6">
                   <va-card  style="background: #eff5e6;">
                     <h3>  Order Confirmation / Sales Order Register (Item-wise)  </h3>
                     <p> Item-wise details of all the order confirmation along with their status </p>
+                    <va-button flat small color="#00b33c" icon="fa fa-file-text">Generate Report</va-button>
                   </va-card>&nbsp;&nbsp;
                 </div>
                 <div class="flex xs6">
                   <va-card  style="background: #eff5e6;">
                     <h3>  Sales Invoice Register  </h3>
                     <p> Details of all the sales invoice along with their payment status </p>
+                    <va-button flat small color="#00b33c" icon="fa fa-file-text">Generate Report</va-button>
                   </va-card>&nbsp;&nbsp;
                 </div>
                 <div class="flex xs6">
                   <va-card  style="background: #eff5e6;">
                     <h3>  Sales Invoice Register (Item-wise) </h3>
                     <p>  Item-wise details of all the sales invoice  </p>
+                    <va-button flat small color="#00b33c" icon="fa fa-file-text">Generate Report</va-button>
                   </va-card>&nbsp;&nbsp;
                 </div>
                 <div class="flex xs6">
                   <va-card  style="background: #eff5e6;">
                     <h3> Sales Enquiry and Quotation Register  </h3>
                     <p>  Details of all the sales quotations along with their conversion status  </p>
+                    <va-button flat small color="#00b33c" icon="fa fa-file-text">Generate Report</va-button>
                   </va-card>&nbsp;&nbsp;
                 </div>
                 <div class="flex xs6">
                   <va-card  style="background: #eff5e6;">
                     <h3>  Sales Enquiry and Quotation Register (Item-wise)  </h3>
                     <p> Item-wise details of all sales quotations along with their status </p>
+                    <va-button flat small color="#00b33c" icon="fa fa-file-text">Generate Report</va-button>
                   </va-card>&nbsp;&nbsp;
                 </div>
               </div>
