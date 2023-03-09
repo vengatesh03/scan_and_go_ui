@@ -5,16 +5,24 @@
     :style="computedStyle"
   >
     <ul class="app-sidebar__menu">
+      <div class="row icon mb-4" v-if="!minimized" >
+        <i class="fa fa-home fa-2x"></i>&nbsp;&nbsp;
+        <p style="font-size: 25px;">Home</p>
+      </div>
+      <va-separator/>
       <template v-for="(item, key) in items">
+
         <app-sidebar-link-group
           :key="key"
           :minimized="minimized"
           :icon="item.meta && item.meta.iconClass"
+          style="color: white;"
           v-if="item.children"
           :title="$t(item.displayName)"
           :children="item.children"
           :active-by-default="hasActiveByDefault(item)"
         >
+
           <app-sidebar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
@@ -110,5 +118,10 @@ export default {
     padding-left: 0;
     width: 100%;
   }
+}
+
+.icon {
+  margin-left: 74px;
+  margin-top: -20px;
 }
 </style>

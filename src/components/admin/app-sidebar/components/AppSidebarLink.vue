@@ -122,7 +122,7 @@ export default {
       if (this.contextConfig.invertedColor) {
         if (this.isHovered || this.isActive) {
           return {
-            color: 'black',
+            color: 'white',
           }
         }
 

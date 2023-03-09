@@ -12,7 +12,7 @@ $seconday-gray: #a9a9a9;
 $thrid-gray: #494949;
 
 .va-button--default {
-  background-color: #efba18 !important;
+  background-color: #1b5d6e !important;
   color: #121212 !important;
   height: 35px;
 }
@@ -159,19 +159,19 @@ $thrid-gray: #494949;
 
 .app-layout .app-sidebar-link__item {
   color: $alpha-color;
-  background: black !important;
+  background: #04242d !important;
 }
 
 .app-layout .app-sidebar-link__item:hover {
   color: $alpha-color;
-  background: #efba18 !important;
+  background: #1b5d6e !important;
   border-color: #ffffff !important;
 }
 
 .app-layout .app-sidebar-link__item.current-selected-tab {
-  color: #121212 !important;
-  border-color: #efba18 !important;
-  background-color: #efba18 !important;
+  color: white !important;
+  border-color: #1b5d6e !important;
+  background-color: #1b5d6e !important;
 }
 
 .input {

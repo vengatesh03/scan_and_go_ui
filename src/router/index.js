@@ -104,6 +104,48 @@ export default new Router({
           children: [],
         },
         {
+          name: 'transactions',
+          path: 'Transactions',
+          component: () => import('../components/transactions/Transaction.vue'),
+          children: [],
+        },
+        {
+          name: 'quotations',
+          path: 'quotations',
+          component: () => import('../components/quotations/Quotations.vue'),
+          children: [],
+        },
+        {
+          name: 'payments',
+          path: 'payments',
+          component: () => import('../components/payments/Payments.vue'),
+          children: [],
+        },
+        {
+          name: 'all_documents',
+          path: 'all_documents',
+          component: () => import('../components/all_documents/All_documents.vue'),
+          children: [],
+        },
+        {
+          name: 'buyers_and_suppliers',
+          path: 'buyers_and_suppliers',
+          component: () => import('../components/buyers_and_suppliers/Buyers_and_suppliers.vue'),
+          children: [],
+        },
+        {
+          name: 'business_intelligence',
+          path: 'business_intelligence',
+          component: () => import('../components/business_intelligence/Business_intelligence.vue'),
+          children: [],
+        },
+        {
+          name: 'settings',
+          path: 'settings',
+          component: () => import('../components/settings/Settings.vue'),
+          children: [],
+        },
+        {
           name: 'logout',
           path: 'logout',
           props: true,

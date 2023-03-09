@@ -51,7 +51,7 @@
           datasets: [
             {
               label: 'Sales',
-              backgroundColor: '#3ec1ed',
+              backgroundColor: '#6c2da1',
               borderColor: 'transparent',
               data: [50, 20, 12, 39, 25, 40,70],
             }
@@ -59,7 +59,7 @@
 
         }
         this.donutChartData = {
-          labels: ['Gadgets', 'Clothes', 'Furniture','Footwear','Personal Care'],
+          labels: ['Chocolates', 'Snacks', 'Maida','Ice cream','Personal Care'],
           datasets: [{
             backgroundColor: ['#E91E34', '#FFD42B', '#FF7700', '#2CB2F2', '#4DA138'],
             data: [20, 30, 40, 50, 100]
@@ -89,7 +89,7 @@
           datasets: [
           {
             label: 'Sales',
-            backgroundColor: hex2rgb('#34ebd0', 0.6).css,
+            backgroundColor: hex2rgb('#a8e048', 0.6).css,
             borderColor: 'transparent',
             data: generateArray(size),
           }]
