@@ -122,9 +122,9 @@ export default new Router({
           children: [],
         },
         {
-          name: 'settings',
-          path: 'settings',
-          component: () => import('../components/settings/Settings.vue'),
+          name: 'reports',
+          path: 'reports',
+          component: () => import('../components/reports/Reports.vue'),
           children: [],
         },
         {

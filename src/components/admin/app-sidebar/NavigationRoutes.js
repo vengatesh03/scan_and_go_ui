@@ -52,7 +52,7 @@ var routes_data = [
     name: 'reports',
     displayName: 'Reports',
     meta: {
-      iconClass: 'fa fa-users',
+      iconClass: 'fa fa-line-chart',
       authorize: ['ADMIN', 'RESELLER', 'OPERATOR', 'CMS_MANAGER', 'FINANCE', 'SALES', 'SUPPORT', 'ADVANCED_SUPPORT'],
       flag: [],
     },
